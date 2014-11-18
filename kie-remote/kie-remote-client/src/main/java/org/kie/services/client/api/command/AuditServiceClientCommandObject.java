@@ -6,6 +6,7 @@ import org.kie.api.runtime.manager.audit.AuditService;
 import org.kie.api.runtime.manager.audit.NodeInstanceLog;
 import org.kie.api.runtime.manager.audit.ProcessInstanceLog;
 import org.kie.api.runtime.manager.audit.VariableInstanceLog;
+import org.kie.api.search.SearchCriteria;
 import org.kie.remote.jaxb.gen.ClearHistoryLogsCommand;
 import org.kie.remote.jaxb.gen.FindActiveProcessInstancesCommand;
 import org.kie.remote.jaxb.gen.FindNodeInstancesCommand;
@@ -14,6 +15,7 @@ import org.kie.remote.jaxb.gen.FindProcessInstancesCommand;
 import org.kie.remote.jaxb.gen.FindSubProcessInstancesCommand;
 import org.kie.remote.jaxb.gen.FindVariableInstancesByNameCommand;
 import org.kie.remote.jaxb.gen.FindVariableInstancesCommand;
+import org.kie.remote.jaxb.gen.ProcessInstancesQueryCommand;
 
 public class AuditServiceClientCommandObject extends AbstractRemoteCommandObject implements AuditService {
 
@@ -109,5 +111,16 @@ public class AuditServiceClientCommandObject extends AbstractRemoteCommandObject
     public void dispose() {
         throw new UnsupportedOperationException("Dispose does not need to be called on the Remote Client  " + AuditService.class.getSimpleName() + " implementation.");
     }
+
+    /**
+     * @author PTI
+     */
+	@Override
+	public List<ProcessInstanceLog> getProcessInstances(
+			SearchCriteria searchCriteria) {
+		ProcessInstancesQueryCommand cmd = new ProcessInstancesQueryCommand();
+        cmd.setSearchCriteria(searchCriteria);
+        return (List<ProcessInstanceLog>) executeCommand(cmd);
+	}
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.kie.api.command.Command;
+import org.kie.api.search.SearchCriteria;
 import org.kie.api.task.TaskService;
 import org.kie.api.task.model.Attachment;
 import org.kie.api.task.model.Comment;
@@ -39,6 +40,7 @@ import org.kie.remote.jaxb.gen.GetTaskCommand;
 import org.kie.remote.jaxb.gen.GetTaskContentCommand;
 import org.kie.remote.jaxb.gen.GetTasksByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByStatusByProcessInstanceIdCommand;
+import org.kie.remote.jaxb.gen.GetTasksCommand;
 import org.kie.remote.jaxb.gen.GetTasksOwnedCommand;
 import org.kie.remote.jaxb.gen.JaxbStringObjectPairArray;
 import org.kie.remote.jaxb.gen.NominateTaskCommand;
@@ -224,7 +226,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
 
     // TaskService methods --------------------------------------------------------------------------------------------------------
     
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public <T> T execute( Command<T> command ) {
         return (T) unsupported(TaskService.class, Object.class);
     }
@@ -311,7 +314,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (Task) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksAssignedAsBusinessAdministrator( String userId, String language ) {
         GetTaskAssignedAsBusinessAdminCommand cmd = new GetTaskAssignedAsBusinessAdminCommand();
         cmd.setUserId(userId);
@@ -319,7 +323,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksAssignedAsPotentialOwner( String userId, String language ) {
         GetTaskAssignedAsPotentialOwnerCommand cmd = new GetTaskAssignedAsPotentialOwnerCommand();
         cmd.setUserId(userId);
@@ -327,7 +332,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksAssignedAsPotentialOwnerByStatus( String userId, List<Status> status, String language ) {
         GetTaskAssignedAsPotentialOwnerCommand cmd = new GetTaskAssignedAsPotentialOwnerCommand();
         cmd.setUserId(userId);
@@ -338,7 +344,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksOwned( String userId, String language ) {
         GetTasksOwnedCommand cmd = new GetTasksOwnedCommand();
         cmd.setUserId(userId);
@@ -346,7 +353,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksOwnedByStatus( String userId, List<Status> status, String language ) {
         GetTasksOwnedCommand cmd = new GetTasksOwnedCommand();
         cmd.setUserId(userId);
@@ -357,7 +365,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<TaskSummary> getTasksByStatusByProcessInstanceId( long processInstanceId, List<Status> status, String language ) {
         GetTasksByStatusByProcessInstanceIdCommand cmd = new GetTasksByStatusByProcessInstanceIdCommand();
         cmd.setProcessInstanceId(processInstanceId);
@@ -368,7 +377,8 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<Long> getTasksByProcessInstanceId( long processInstanceId ) {
         GetTasksByProcessInstanceIdCommand cmd = new GetTasksByProcessInstanceIdCommand();
         cmd.setProcessInstanceId(processInstanceId);
@@ -459,11 +469,20 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (Attachment) executeCommand(cmd);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public Map<String, Object> getTaskContent( long taskId ) {
         GetTaskContentCommand cmd = new GetTaskContentCommand();
         cmd.setTaskId(taskId);
         return (Map<String, Object>) executeCommand(cmd);
     }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TaskSummary> getTasks(SearchCriteria searchCriteria) {
+		GetTasksCommand cmd = new GetTasksCommand();
+		cmd.setSearchCriteria(searchCriteria);
+        return (List<TaskSummary>) executeCommand(cmd);
+	}
 
 }

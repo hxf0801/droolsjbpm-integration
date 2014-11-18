@@ -9,6 +9,7 @@ import java.io.ObjectOutput;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.kie.api.task.model.Attachment;
 import org.kie.api.task.model.Comment;
@@ -21,12 +22,10 @@ import org.kie.api.task.model.Status;
 import org.kie.api.task.model.Task;
 import org.kie.api.task.model.TaskData;
 import org.kie.api.task.model.User;
-import org.kie.internal.task.api.model.Deadline;
 import org.kie.internal.task.api.model.Deadlines;
 import org.kie.internal.task.api.model.Delegation;
 import org.kie.internal.task.api.model.InternalPeopleAssignments;
 import org.kie.internal.task.api.model.InternalTask;
-import org.kie.internal.task.api.model.InternalTaskData;
 import org.kie.internal.task.api.model.SubTasksStrategy;
 import org.kie.remote.jaxb.gen.Type;
 
@@ -258,6 +257,20 @@ abstract class JaxbWrapper {
         public void setDescription( String description ) {
             unsupported(InternalTask.class, Void.class);
         }
+        
+        /**
+         * Use map to return our self-defined table properties
+         * @author PTI
+         */
+		@Override
+		public Map<String, Object> getMoreProperties() {
+			return this.task.getMoreProperties();
+		}
+
+		@Override
+		public void setMoreProperties(Map<String, Object> moreProperties) {
+			unsupported(Map.class, Void.class);
+		}
     }
    
     /**

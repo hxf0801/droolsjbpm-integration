@@ -74,6 +74,8 @@ import org.kie.remote.jaxb.gen.StopTaskCommand;
 import org.kie.remote.jaxb.gen.SuspendTaskCommand;
 import org.kie.remote.jaxb.gen.TaskCommand;
 import org.kie.remote.jaxb.gen.UpdateCommand;
+import org.kie.remote.jaxb.gen.GetTasksCommand;
+import org.kie.remote.jaxb.gen.ProcessInstancesQueryCommand;
 import org.kie.services.shared.ServicesVersion;
 
 @XmlRootElement(name = "command-request")
@@ -157,6 +159,7 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "process-sub-tasks-command", type = ProcessSubTaskCommand.class),
             @XmlElement(name = "execute-task-rules-command", type = ExecuteTaskRulesCommand.class),
             @XmlElement(name = "cancel-deadline-command", type = CancelDeadlineCommand.class),
+            @XmlElement(name = "get-tasks-command", type = GetTasksCommand.class),
             
             // audit
             @XmlElement(name = "clear-history-logs", type = ClearHistoryLogsCommand.class),
@@ -166,7 +169,8 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "find-process-instances", type = FindProcessInstancesCommand.class),
             @XmlElement(name = "find-subprocess-instances", type = FindSubProcessInstancesCommand.class),
             @XmlElement(name = "find-variable-instances", type = FindVariableInstancesCommand.class),
-            @XmlElement(name = "find-variable-instances-by-name", type = FindVariableInstancesByNameCommand.class)
+            @XmlElement(name = "find-variable-instances-by-name", type = FindVariableInstancesByNameCommand.class),
+            @XmlElement(name = "get-process-instancess", type = ProcessInstancesQueryCommand.class)
     })
     protected List<Command> commands;
 

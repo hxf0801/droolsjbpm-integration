@@ -7,6 +7,7 @@ import org.drools.persistence.infinispan.InfinispanPersistenceContext;
 import org.infinispan.Cache;
 import org.jbpm.persistence.correlation.CorrelationKeyInfo;
 import org.jbpm.persistence.processinstance.ProcessEntityHolder;
+import org.jbpm.persistence.processinstance.ProcessInstanceExtra;
 import org.jbpm.persistence.processinstance.ProcessInstanceInfo;
 import org.kie.internal.process.CorrelationKey;
 import org.slf4j.Logger;
@@ -147,5 +148,16 @@ public class InfinispanProcessPersistenceContext extends InfinispanPersistenceCo
     	}
     	return (retval.size() == 1) ? retval.iterator().next() : null;
     }
+
+    /*
+     * (non-Javadoc)
+     * @see org.jbpm.persistence.ProcessPersistenceContext#persist(org.jbpm.persistence.processinstance.ProcessInstanceExtra)
+     * @author PTI
+     */
+	@Override
+	public ProcessInstanceExtra persist(
+			ProcessInstanceExtra processInstanceExtra) {
+		return null;
+	}
 
 }

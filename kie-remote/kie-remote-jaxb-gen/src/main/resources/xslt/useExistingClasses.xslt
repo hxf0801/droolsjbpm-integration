@@ -14,6 +14,8 @@
     <xsl:template match="//xs:schema/xs:simpleType[@name='status']" />
     <xsl:template match="//xs:schema/xs:complexType[@name='stringKeyObjectValueMap']" />
     <xsl:template match="//xs:schema/xs:complexType[@name='stringKeyObjectValueEntry']" />
+    <xsl:template match="//xs:schema/xs:complexType[@name='searchCriteria']" />
+    <xsl:template match="//xs:schema/xs:complexType[@name='whereParameter']" />
    
     <!-- 2. add existing classes -->
     <xsl:template match="//xs:schema">
@@ -43,6 +45,20 @@
           <xs:annotation>
             <xs:appinfo>
               <jxb:class ref="org.kie.internal.jaxb.StringKeyObjectValueMap" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:complexType>
+        <xs:complexType name="searchCriteria">
+          <xs:annotation>
+            <xs:appinfo>
+              <jxb:class ref="org.kie.api.search.SearchCriteria" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:complexType>
+        <xs:complexType name="whereParameter">
+          <xs:annotation>
+            <xs:appinfo>
+              <jxb:class ref="org.kie.api.search.WhereParameter" />
             </xs:appinfo>
           </xs:annotation>
         </xs:complexType>

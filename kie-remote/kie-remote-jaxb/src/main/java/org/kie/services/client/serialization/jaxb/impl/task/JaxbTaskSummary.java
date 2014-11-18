@@ -22,6 +22,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -118,6 +119,13 @@ public class JaxbTaskSummary implements TaskSummary {
     
     @XmlElement(name="potential-owner")
     private List<String> potentialOwners;
+    
+    /**
+     * hold the custom table's fields
+     * @author PTI
+     */
+    @XmlElement(nillable=true)
+    private Map<String, Object> moreProperties;
 
     public JaxbTaskSummary(TaskSummary taskSum) {
         this.id = taskSum.getId();
@@ -144,6 +152,7 @@ public class JaxbTaskSummary implements TaskSummary {
         this.deploymentId = taskSum.getDeploymentId();
         this.quickTaskSummary = false;
         this.parentId = taskSum.getParentId();
+        this.moreProperties = taskSum.getMoreProperties();
     }
     
     
@@ -337,22 +346,46 @@ public class JaxbTaskSummary implements TaskSummary {
     @Override
     public Long getParentId() {
         return parentId;
-    }
+	}
 
-    private class GetterUser implements User {
-    
-        private final String id;
-        public GetterUser(String id) { 
-            this.id = id;
-        }
-        
-        @Override
-        public String getId() {
-            return this.id;
-        }
-    
-        public void writeExternal(ObjectOutput out) throws IOException { unsupported(User.class, Void.class); }
-        public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException { unsupported(User.class, Void.class); } 
-    }
-    
+	private class GetterUser implements User {
+
+		private final String id;
+
+		public GetterUser(String id) {
+			this.id = id;
+		}
+
+		@Override
+		public String getId() {
+			return this.id;
+		}
+
+		public void writeExternal(ObjectOutput out) throws IOException {
+			unsupported(User.class, Void.class);
+		}
+
+		public void readExternal(ObjectInput in) throws IOException,
+				ClassNotFoundException {
+			unsupported(User.class, Void.class);
+		}
+	}
+
+	/**
+     * hold the custom table's fields
+     * @return Map
+     * @author PTI
+     */
+	public Map<String, Object> getMoreProperties() {
+		return moreProperties;
+	}
+
+	/**
+	 * hold the custom table's fields
+     * @author PTI
+	 * @param moreProperties
+	 */
+    public void setMoreProperties(Map<String, Object> moreProperties) {
+        this.moreProperties = moreProperties;
+    }    
 }

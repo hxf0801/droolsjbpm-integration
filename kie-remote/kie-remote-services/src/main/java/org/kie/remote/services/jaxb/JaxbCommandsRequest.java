@@ -42,6 +42,7 @@ import org.jbpm.process.audit.command.FindProcessInstancesCommand;
 import org.jbpm.process.audit.command.FindSubProcessInstancesCommand;
 import org.jbpm.process.audit.command.FindVariableInstancesByNameCommand;
 import org.jbpm.process.audit.command.FindVariableInstancesCommand;
+import org.jbpm.process.audit.command.ProcessInstancesQueryCommand;
 import org.jbpm.services.task.commands.ActivateTaskCommand;
 import org.jbpm.services.task.commands.AddTaskCommand;
 import org.jbpm.services.task.commands.CancelDeadlineCommand;
@@ -63,6 +64,7 @@ import org.jbpm.services.task.commands.GetTaskContentCommand;
 import org.jbpm.services.task.commands.GetTasksByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByStatusByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByVariousFieldsCommand;
+import org.jbpm.services.task.commands.GetTasksCommand;
 import org.jbpm.services.task.commands.GetTasksOwnedCommand;
 import org.jbpm.services.task.commands.NominateTaskCommand;
 import org.jbpm.services.task.commands.ProcessSubTaskCommand;
@@ -160,6 +162,7 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "process-sub-tasks-command", type = ProcessSubTaskCommand.class),
             @XmlElement(name = "execute-task-rules-command", type = ExecuteTaskRulesCommand.class),
             @XmlElement(name = "cancel-deadline-command", type = CancelDeadlineCommand.class),
+            @XmlElement(name = "get-tasks-command", type = GetTasksCommand.class),
             
             // audit
             @XmlElement(name = "clear-history-logs", type = ClearHistoryLogsCommand.class),
@@ -169,7 +172,9 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "find-process-instances", type = FindProcessInstancesCommand.class),
             @XmlElement(name = "find-subprocess-instances", type = FindSubProcessInstancesCommand.class),
             @XmlElement(name = "find-variable-instances", type = FindVariableInstancesCommand.class),
-            @XmlElement(name = "find-variable-instances-by-name", type = FindVariableInstancesByNameCommand.class)
+            @XmlElement(name = "find-variable-instances-by-name", type = FindVariableInstancesByNameCommand.class),
+            @XmlElement(name = "get-process-instances", type = ProcessInstancesQueryCommand.class)
+            
     })
     protected List<Command> commands;
 
