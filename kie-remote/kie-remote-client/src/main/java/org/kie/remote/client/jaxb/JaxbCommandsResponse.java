@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.jbpm.services.task.commands.GetTasksCommand;
 import org.kie.api.command.Command;
 import org.kie.api.runtime.manager.audit.NodeInstanceLog;
 import org.kie.api.runtime.manager.audit.ProcessInstanceLog;
@@ -99,6 +100,7 @@ public class JaxbCommandsResponse {
         cmdListTypes.put(GetTasksByStatusByProcessInstanceIdCommand.class, TaskSummary.class);
         cmdListTypes.put(GetTasksOwnedCommand.class, TaskSummary.class);
         cmdListTypes.put(GetTasksByVariousFieldsCommand.class, TaskSummary.class);
+		cmdListTypes.put(GetTasksCommand.class, TaskSummary.class);
         
         // long
         cmdListTypes.put(GetTaskByWorkItemIdCommand.class, Long.class);

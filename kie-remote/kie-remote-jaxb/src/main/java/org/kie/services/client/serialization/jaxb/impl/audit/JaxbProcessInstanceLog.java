@@ -1,6 +1,7 @@
 package org.kie.services.client.serialization.jaxb.impl.audit;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -217,4 +218,18 @@ public class JaxbProcessInstanceLog extends AbstractJaxbHistoryObject<ProcessIns
     public void setResult(ProcessInstanceLog result) { 
         initialize(result);
     }
+    
+    /**
+     * additional custom fields
+     */
+    @XmlElement(nillable=true)
+    private Map<String, Object> moreProperties;
+
+	public Map<String, Object> getMoreProperties() {
+		return moreProperties;
+	}
+
+	public void setMoreProperties(Map<String, Object> moreProperties) {
+		this.moreProperties = moreProperties;
+	}
 }

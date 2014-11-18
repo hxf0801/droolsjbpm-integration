@@ -54,6 +54,7 @@ import org.jbpm.services.task.commands.GetTaskContentCommand;
 import org.jbpm.services.task.commands.GetTasksByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByStatusByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByVariousFieldsCommand;
+import org.jbpm.services.task.commands.GetTasksCommand;
 import org.jbpm.services.task.commands.GetTasksOwnedCommand;
 import org.jbpm.services.task.commands.NominateTaskCommand;
 import org.jbpm.services.task.commands.ProcessSubTaskCommand;
@@ -134,6 +135,7 @@ public class AcceptedServerCommands {
         acceptedCommands.add(ProcessSubTaskCommand.class);
         acceptedCommands.add(ExecuteTaskRulesCommand.class);
         acceptedCommands.add(CancelDeadlineCommand.class);
+        acceptedCommands.add(GetTasksCommand.class);
 
         // audit commands
         acceptedCommands.add(ClearHistoryLogsCommand.class);

@@ -1,6 +1,8 @@
 package org.kie.remote.client.jaxb;
 
+import org.jbpm.services.task.commands.GetTasksCommand;
 import org.kie.remote.jaxb.gen.*;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -74,6 +76,7 @@ public class AcceptedClientCommands {
         acceptedCommands.add(ProcessSubTaskCommand.class);
         acceptedCommands.add(ExecuteTaskRulesCommand.class);
         acceptedCommands.add(CancelDeadlineCommand.class);
+        acceptedCommands.add(GetTasksCommand.class);
 
         // audit commands
         acceptedCommands.add(ClearHistoryLogsCommand.class);
