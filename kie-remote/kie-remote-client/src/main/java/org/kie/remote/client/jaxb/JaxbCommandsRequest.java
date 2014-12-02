@@ -170,7 +170,7 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "find-subprocess-instances", type = FindSubProcessInstancesCommand.class),
             @XmlElement(name = "find-variable-instances", type = FindVariableInstancesCommand.class),
             @XmlElement(name = "find-variable-instances-by-name", type = FindVariableInstancesByNameCommand.class),
-            @XmlElement(name = "get-process-instancess", type = ProcessInstancesQueryCommand.class)
+            @XmlElement(name = "process-instances-query", type = ProcessInstancesQueryCommand.class)
     })
     protected List<Command> commands;
 
