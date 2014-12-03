@@ -126,6 +126,13 @@ public class JaxbTaskSummary implements TaskSummary {
      */
     @XmlElement(nillable=true)
     private Map<String, Object> moreProperties;
+    /**
+     * unique and real task name. it is not the display name
+     * @author PTI
+     */
+    @XmlElement
+    @XmlSchemaType(name="string")
+    private String formName;
 
     public JaxbTaskSummary(TaskSummary taskSum) {
         this.id = taskSum.getId();
@@ -153,6 +160,7 @@ public class JaxbTaskSummary implements TaskSummary {
         this.quickTaskSummary = false;
         this.parentId = taskSum.getParentId();
         this.moreProperties = taskSum.getMoreProperties();
+        this.formName = taskSum.getFormName();
     }
     
     
@@ -387,5 +395,24 @@ public class JaxbTaskSummary implements TaskSummary {
 	 */
     public void setMoreProperties(Map<String, Object> moreProperties) {
         this.moreProperties = moreProperties;
-    }    
+    }
+
+	/**
+	 * unique and real task name. it is not the display name
+	 * @return String
+     * @author PTI
+	 */
+    public String getFormName() {
+		return formName;
+	}
+
+	/**
+	 * unique and real task name. it is not the display name
+	 * @param formName - String
+     * @author PTI
+	 */
+    public void setFormName(String formName) {
+		this.formName = formName;
+	}
+    
 }
