@@ -34,6 +34,8 @@ import org.kie.remote.jaxb.gen.GetTasksByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByStatusByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByVariousFieldsCommand;
 import org.kie.remote.jaxb.gen.GetTasksOwnedCommand;
+import org.kie.remote.jaxb.gen.GetTasksCommand;
+import org.kie.remote.jaxb.gen.ProcessInstancesQueryCommand;
 import org.kie.services.client.serialization.jaxb.impl.JaxbCommandResponse;
 import org.kie.services.client.serialization.jaxb.impl.JaxbLongListResponse;
 import org.kie.services.client.serialization.jaxb.impl.JaxbOtherResponse;
@@ -99,6 +101,7 @@ public class JaxbCommandsResponse {
         cmdListTypes.put(GetTasksByStatusByProcessInstanceIdCommand.class, TaskSummary.class);
         cmdListTypes.put(GetTasksOwnedCommand.class, TaskSummary.class);
         cmdListTypes.put(GetTasksByVariousFieldsCommand.class, TaskSummary.class);
+		cmdListTypes.put(GetTasksCommand.class, TaskSummary.class);
         
         // long
         cmdListTypes.put(GetTaskByWorkItemIdCommand.class, Long.class);
@@ -114,6 +117,7 @@ public class JaxbCommandsResponse {
         cmdListTypes.put(FindProcessInstancesCommand.class, ProcessInstanceLog.class);
         cmdListTypes.put(FindActiveProcessInstancesCommand.class, ProcessInstanceLog.class);
         cmdListTypes.put(FindSubProcessInstancesCommand.class, ProcessInstanceLog.class);
+        cmdListTypes.put(ProcessInstancesQueryCommand.class, ProcessInstanceLog.class);
         
         // variableInstanceLog
         cmdListTypes.put(FindVariableInstancesByNameCommand.class, VariableInstanceLog.class);

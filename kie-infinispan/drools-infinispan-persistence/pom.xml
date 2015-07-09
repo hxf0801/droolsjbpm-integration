@@ -6,7 +6,11 @@
   <parent>
     <groupId>org.kie</groupId>
     <artifactId>kie-infinispan</artifactId>
+<<<<<<< HEAD
     <version>6.2.0.Final</version>
+=======
+    <version>6.2.0.CR2</version>
+>>>>>>> refs/remotes/origin/my6.2.0.CR2
   </parent>
 
   <artifactId>drools-infinispan-persistence</artifactId>

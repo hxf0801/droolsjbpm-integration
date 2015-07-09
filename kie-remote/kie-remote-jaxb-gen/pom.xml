@@ -187,7 +187,7 @@
                   <type>jar</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${basedir}/src/main/java</outputDirectory>
-                  <includes>org/jbpm/process/audit/command/Find*.java,
+                  <includes>org/jbpm/process/audit/command/Find*.java,org/jbpm/process/audit/command/ProcessInstancesQueryCommand.java,
                     org/jbpm/process/audit/command/Clear*.java,</includes>
                 </artifactItem>
               </artifactItems>

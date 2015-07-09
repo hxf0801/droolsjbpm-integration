@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.kie.api.command.Command;
+import org.kie.api.search.SearchCriteria;
 import org.kie.api.task.TaskService;
 import org.kie.api.task.model.Attachment;
 import org.kie.api.task.model.Comment;
@@ -42,6 +43,7 @@ import org.kie.remote.jaxb.gen.GetTaskContentCommand;
 import org.kie.remote.jaxb.gen.GetTasksByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByStatusByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByVariousFieldsCommand;
+import org.kie.remote.jaxb.gen.GetTasksCommand;
 import org.kie.remote.jaxb.gen.GetTasksOwnedCommand;
 import org.kie.remote.jaxb.gen.JaxbStringObjectPairArray;
 import org.kie.remote.jaxb.gen.NominateTaskCommand;
@@ -521,5 +523,13 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         cmd.setFilter(filter);
         return (List<TaskSummary>) executeCommand(cmd);
     }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<TaskSummary> getTasks(SearchCriteria searchCriteria) {
+		GetTasksCommand cmd = new GetTasksCommand();
+		cmd.setSearchCriteria(searchCriteria);
+        return (List<TaskSummary>) executeCommand(cmd);
+	}
 
 }

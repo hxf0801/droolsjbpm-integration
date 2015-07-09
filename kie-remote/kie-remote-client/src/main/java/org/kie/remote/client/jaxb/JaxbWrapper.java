@@ -9,6 +9,7 @@ import java.io.ObjectOutput;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.kie.api.task.model.Attachment;
 import org.kie.api.task.model.Comment;
@@ -256,6 +257,20 @@ abstract class JaxbWrapper {
         public void setDescription( String description ) {
             unsupported(InternalTask.class, Void.class);
         }
+        
+        /**
+         * Use map to return our self-defined table properties
+         * @author PTI
+         */
+		@Override
+		public Map<String, Object> getMoreProperties() {
+			return this.task.getMoreProperties();
+		}
+
+		@Override
+		public void setMoreProperties(Map<String, Object> moreProperties) {
+			unsupported(Map.class, Void.class);
+		}
     }
    
     /**

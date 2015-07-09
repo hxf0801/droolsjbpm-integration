@@ -25,8 +25,12 @@
 
   <!--<bean id="kieSpringProcessor" class="org.kie.spring.KModuleBeanFactoryPostProcessor"/> -->
 
+<<<<<<< HEAD
   <!-- Do not modify the version: it is automatically incremented by the maven replacer plugin -->
   <kie:releaseId id="namedKieSession" groupId="org.drools" artifactId="named-kiesession" version="6.2.0.Final"/>
+=======
+  <kie:releaseId id="namedKieSession" groupId="org.drools" artifactId="named-kiesession" version="6.2.0.CR2"/>
+>>>>>>> refs/remotes/origin/my6.2.0.CR2
 
   <bean id="annotatedBean" class="org.kie.spring.beans.annotations.BeanWithReleaseId"/>
 

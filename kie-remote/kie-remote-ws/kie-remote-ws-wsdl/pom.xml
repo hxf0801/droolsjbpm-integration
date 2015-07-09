@@ -5,7 +5,11 @@
   <parent>
     <groupId>org.kie.remote.ws</groupId>
     <artifactId>kie-remote-ws</artifactId>
+<<<<<<< HEAD
     <version>6.2.0.Final</version>
+=======
+    <version>6.2.0.CR2</version>
+>>>>>>> refs/remotes/origin/my6.2.0.CR2
   </parent>
 
   <packaging>jar</packaging>

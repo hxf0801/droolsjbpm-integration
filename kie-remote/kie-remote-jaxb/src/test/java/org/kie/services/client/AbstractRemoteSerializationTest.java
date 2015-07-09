@@ -342,7 +342,7 @@ public abstract class AbstractRemoteSerializationTest extends JbpmJUnitBaseTestC
         xmlLog.setCommandName("test-cmd");
         xmlLog.setIndex(2);
         JaxbProcessInstanceLog newXmlLog = testRoundTrip(xmlLog);
-        ComparePair.compareObjectsViaFields(xmlLog, newXmlLog, "id");
+        ComparePair.compareObjectsViaFields(xmlLog, newXmlLog, "id","moreProperties");
         
         ProcessInstanceLog newLog = newXmlLog.getResult();
         ProcessInstanceLog origCmpLog = (ProcessInstanceLog) origLog;
