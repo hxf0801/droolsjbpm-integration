@@ -42,6 +42,7 @@
   </dependencies>
 
   <build>
+  <pluginManagement>
     <plugins>
       <!-- 0. deleted previously generated wsdl -->
       <plugin>
@@ -169,6 +170,7 @@
         </executions>
       </plugin>
     </plugins>
+  </pluginManagement>
   </build> 
   
    <!-- setup corresponding executables on win/*nix -->

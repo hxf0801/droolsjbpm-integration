@@ -72,6 +72,7 @@
   </dependencies>
 
   <build>
+  <pluginManagement>
     <plugins>
       <!-- 0. deleted unpacked and generated classes -->
       <plugin>
@@ -341,5 +342,6 @@
         </configuration>
       </plugin>
     </plugins>
+  </pluginManagement>
   </build>
 </project>

@@ -226,6 +226,7 @@
         <directory>src/test/filtered-resources</directory>
       </testResource>
     </testResources>
+    <pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -279,5 +280,6 @@
         </configuration>
       </plugin>
     </plugins>
+    </pluginManagement>
   </build>
 </project>

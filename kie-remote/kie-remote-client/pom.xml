@@ -239,6 +239,7 @@
   </dependencies>
 
   <build>
+  <pluginManagement>
     <plugins>
       <!--  generated: 0. delete all generated unpacked files because they are generated code and could change -->
       <!--  WSDL: 0. delete all generated files because only the WSDL determines code, no code in VCS -->
@@ -411,6 +412,7 @@
         </executions>
       </plugin>
     </plugins>
+  </pluginManagement>
   </build>
 
   <!-- setup corresponding executables on win/*nix -->
