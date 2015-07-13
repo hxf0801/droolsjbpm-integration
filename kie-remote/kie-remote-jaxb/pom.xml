@@ -118,7 +118,6 @@
   </dependencies>
 
   <build>
-  <pluginManagement>
     <plugins>
       <plugin>
         <groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -146,7 +145,6 @@
         </configuration>
       </plugin>
     </plugins>
-	</pluginManagement>
   </build>  
   
 </project>

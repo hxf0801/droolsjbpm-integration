@@ -1,5 +1,7 @@
 package org.kie.remote.client.jaxb;
 
+import org.jbpm.process.audit.command.ProcessInstancesQueryCommand;
+import org.jbpm.services.task.commands.GetTasksCommand;
 import org.kie.remote.jaxb.gen.*;
 
 import java.util.Collections;

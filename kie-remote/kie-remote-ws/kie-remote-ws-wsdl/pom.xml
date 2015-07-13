@@ -34,7 +34,6 @@
   </properties>
   
   <build>
-  <pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
@@ -178,7 +177,6 @@
       </plugin>
 
     </plugins>
-    </pluginManagement>
   </build>
 
   <!-- setup corresponding executables on win/*nix -->
