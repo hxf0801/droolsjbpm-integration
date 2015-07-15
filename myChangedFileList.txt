@@ -1,0 +1,17 @@
+# my changed file list based on 6.2.0.Final
+
+jbpm-infinispan-persistence/src/main/java/org/jbpm/persistence/InfinispanProcessPersistenceContext.java
+jbpm-infinispan-persistence/src/main/java/org/jbpm/persistence/processinstance/InfinispanProcessInstanceManager.java
+kie-remote-client/src/main/java/org/kie/remote/client/jaxb/AcceptedClientCommands.java
+kie-remote-client/src/main/java/org/kie/remote/client/jaxb/JaxbCommandsRequest.java
+kie-remote-client/src/main/java/org/kie/remote/client/jaxb/JaxbCommandsResponse.java
+kie-remote-client/src/main/java/org/kie/remote/client/jaxb/JaxbWrapper.java
+kie-remote-client/src/main/java/org/kie/services/client/api/command/AuditServiceClientCommandObject.java
+kie-remote-client/src/main/java/org/kie/services/client/api/command/TaskServiceClientCommandObject.java
+kie-remote-jaxb/src/test/java/org/kie/services/client/AbstractRemoteSerializationTest.java
+kie-remote-jaxb/src/main/java/org/kie/services/client/serialization/jaxb/impl/audit/JaxbProcessInstanceLog.java
+kie-remote-jaxb/src/main/java/org/kie/services/client/serialization/jaxb/impl/task/JaxbTaskSummary.java
+kie-remote-jaxb-gen/src/main/resources/xslt/useExistingClasses.xslt
+kie-remote-services/src/main/java/org/kie/remote/services/AcceptedServerCommands.java
+kie-remote-services/src/main/java/org/kie/remote/services/jaxb/JaxbCommandsRequest.java
+kie-remote-services/src/main/java/org/kie/remote/services/rest/HistoryResourceImpl.java
