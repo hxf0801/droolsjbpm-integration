@@ -74,6 +74,9 @@ import org.kie.remote.jaxb.gen.SuspendTaskCommand;
 import org.kie.remote.jaxb.gen.TaskCommand;
 import org.kie.remote.jaxb.gen.UpdateCommand;
 import org.kie.remote.jaxb.gen.GetTasksCommand;
+import org.kie.remote.jaxb.gen.GetTaskSummaryCommand;
+import org.kie.remote.jaxb.gen.GetTasksByInstanceIdCommand;
+import org.kie.remote.jaxb.gen.UpdateProcessExtraCommand;
 import org.kie.remote.jaxb.gen.ProcessInstancesQueryCommand;
 import org.kie.services.shared.ServicesVersion;
 
@@ -158,7 +161,12 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "process-sub-tasks-command", type = ProcessSubTaskCommand.class),
             @XmlElement(name = "execute-task-rules-command", type = ExecuteTaskRulesCommand.class),
             @XmlElement(name = "cancel-deadline-command", type = CancelDeadlineCommand.class),
+            // PTI begin -------------------------
             @XmlElement(name = "get-tasks-command", type = GetTasksCommand.class),
+            @XmlElement(name = "get-tasks-by-instance-id-command", type = GetTasksByInstanceIdCommand.class),
+            @XmlElement(name = "update-process-extra-command", type = UpdateProcessExtraCommand.class),
+            @XmlElement(name = "get-task-summary-command", type = GetTaskSummaryCommand.class),
+            // PTI end -------------------------
             
             // audit
             @XmlElement(name = "clear-history-logs", type = ClearHistoryLogsCommand.class),

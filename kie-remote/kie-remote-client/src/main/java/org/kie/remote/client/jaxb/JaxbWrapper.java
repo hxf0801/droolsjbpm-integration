@@ -271,6 +271,16 @@ abstract class JaxbWrapper {
 		public void setMoreProperties(Map<String, Object> moreProperties) {
 			unsupported(Map.class, Void.class);
 		}
+
+		@Override
+		public void setBatchProcessType(String batchProcessType) {
+			unsupported(InternalTask.class, Void.class);
+		}
+		
+		@Override
+		public String getBatchProcessType() {
+			return this.task.getBatchProcessType();
+		}
     }
    
     /**

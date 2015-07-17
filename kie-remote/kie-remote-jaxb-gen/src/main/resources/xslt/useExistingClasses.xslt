@@ -18,6 +18,7 @@
     <xsl:template match="//xs:schema/xs:complexType[@name='jaxbStringObjectPair']" />
     <xsl:template match="//xs:schema/xs:complexType[@name='searchCriteria']" />
     <xsl:template match="//xs:schema/xs:complexType[@name='whereParameter']" />
+    <xsl:template match="//xs:schema/xs:complexType[@name='wfTaskSummary']" />
    
     <!-- 2. add existing classes -->
     <xsl:template match="//xs:schema">
@@ -76,6 +77,13 @@
           <xs:annotation>
             <xs:appinfo>
               <jxb:class ref="org.kie.api.search.WhereParameter" />
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:complexType>
+         <xs:complexType name="wfTaskSummary">
+          <xs:annotation>
+            <xs:appinfo>
+              <jxb:class ref="com.pti.fsc.common.wf.WfTaskSummary" />
             </xs:appinfo>
           </xs:annotation>
         </xs:complexType>

@@ -44,6 +44,9 @@ import org.kie.remote.jaxb.gen.GetTasksByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByStatusByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByVariousFieldsCommand;
 import org.kie.remote.jaxb.gen.GetTasksCommand;
+import org.kie.remote.jaxb.gen.GetTasksByInstanceIdCommand;
+import org.kie.remote.jaxb.gen.UpdateProcessExtraCommand;
+import org.kie.remote.jaxb.gen.GetTaskSummaryCommand;
 import org.kie.remote.jaxb.gen.GetTasksOwnedCommand;
 import org.kie.remote.jaxb.gen.JaxbStringObjectPairArray;
 import org.kie.remote.jaxb.gen.NominateTaskCommand;
@@ -55,6 +58,8 @@ import org.kie.remote.jaxb.gen.StartTaskCommand;
 import org.kie.remote.jaxb.gen.StopTaskCommand;
 import org.kie.remote.jaxb.gen.SuspendTaskCommand;
 import org.kie.remote.jaxb.gen.Type;
+
+import com.pti.fsc.common.wf.WfTaskSummary;
 
 public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject implements TaskService {
 
@@ -530,6 +535,29 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
 		GetTasksCommand cmd = new GetTasksCommand();
 		cmd.setSearchCriteria(searchCriteria);
         return (List<TaskSummary>) executeCommand(cmd);
+	}
+
+	@Override
+	public List<TaskSummary> getTasksByInstanceId(long processInstanceId) {
+		GetTasksByInstanceIdCommand cmd = new GetTasksByInstanceIdCommand();
+		cmd.setProcessInstanceId(processInstanceId);
+        return (List<TaskSummary>) executeCommand(cmd);
+	}
+
+	@Override
+	public List<WfTaskSummary> getTaskSummary(SearchCriteria searchCriteria) {
+		GetTaskSummaryCommand cmd = new GetTaskSummaryCommand();
+		cmd.setSearchCriteria(searchCriteria);
+        return (List<WfTaskSummary>) executeCommand(cmd);
+	}
+
+	@Override
+	public void updateProcessExtra(long taskId, Map<String, Object> data) {
+		UpdateProcessExtraCommand cmd = new UpdateProcessExtraCommand();
+		JaxbStringObjectPairArray values = convertMapToJaxbStringObjectPairArray(data);
+		cmd.setData(values);
+		cmd.setTaskId(taskId);
+        executeCommand(cmd);
 	}
 
 }

@@ -61,6 +61,8 @@ import org.jbpm.services.task.commands.GetTaskAssignedAsPotentialOwnerCommand;
 import org.jbpm.services.task.commands.GetTaskByWorkItemIdCommand;
 import org.jbpm.services.task.commands.GetTaskCommand;
 import org.jbpm.services.task.commands.GetTaskContentCommand;
+import org.jbpm.services.task.commands.GetTaskSummaryCommand;
+import org.jbpm.services.task.commands.GetTasksByInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByStatusByProcessInstanceIdCommand;
 import org.jbpm.services.task.commands.GetTasksByVariousFieldsCommand;
@@ -75,6 +77,7 @@ import org.jbpm.services.task.commands.StartTaskCommand;
 import org.jbpm.services.task.commands.StopTaskCommand;
 import org.jbpm.services.task.commands.SuspendTaskCommand;
 import org.jbpm.services.task.commands.TaskCommand;
+import org.jbpm.services.task.commands.UpdateProcessExtraCommand;
 import org.kie.api.command.Command;
 import org.kie.remote.services.AcceptedServerCommands;
 import org.kie.services.shared.ServicesVersion;
@@ -162,8 +165,12 @@ public class JaxbCommandsRequest {
             @XmlElement(name = "process-sub-tasks-command", type = ProcessSubTaskCommand.class),
             @XmlElement(name = "execute-task-rules-command", type = ExecuteTaskRulesCommand.class),
             @XmlElement(name = "cancel-deadline-command", type = CancelDeadlineCommand.class),
+            // PTI begin ---------------------------
             @XmlElement(name = "get-tasks-command", type = GetTasksCommand.class),
-            
+            @XmlElement(name = "get-tasks-by-instance-id-command", type = GetTasksByInstanceIdCommand.class),
+            @XmlElement(name = "update-process-extra-command", type = UpdateProcessExtraCommand.class),
+            @XmlElement(name = "get-task-summary-command", type = GetTaskSummaryCommand.class),
+            // PTI eng -----------------------------
             // audit
             @XmlElement(name = "clear-history-logs", type = ClearHistoryLogsCommand.class),
             @XmlElement(name = "find-active-process-instances", type = FindActiveProcessInstancesCommand.class),

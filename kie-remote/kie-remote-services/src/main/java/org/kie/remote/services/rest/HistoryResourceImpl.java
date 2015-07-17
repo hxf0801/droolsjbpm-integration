@@ -47,7 +47,16 @@ public class HistoryResourceImpl extends ResourceBase {
         String oper = getRelativePath();
         Map<String, String []> params = getRequestParams();
         
-        List<ProcessInstanceLog> procInstLogResults = getAuditLogService().findProcessInstances();
+        String activeProcessesStr = getStringParam("activeProcesses", false, params, oper);
+        boolean activeProcesses = Boolean.parseBoolean(activeProcessesStr);
+                 
+		List<ProcessInstanceLog> procInstLogResults;
+		if (activeProcesses) {
+			procInstLogResults = getAuditLogService()
+					.findActiveProcessInstances();
+		} else {
+			procInstLogResults = getAuditLogService().findProcessInstances();
+		}
         sortProcessInstanceLogs(procInstLogResults);
         
         List<Object> results = new ArrayList<Object>(procInstLogResults);

@@ -178,6 +178,7 @@
                     org/jbpm/services/task/commands/GetAttachmentCommand.java,
                     org/jbpm/services/task/commands/GetContentCommand.java,
                     org/jbpm/services/task/commands/GetTask*Command.java,
+                    org/jbpm/services/task/commands/UpdateProcessExtraCommand.java,
                     org/jbpm/services/task/impl/model/xml/JaxbContent.java</includes>
                 </artifactItem>
                 <artifactItem>
