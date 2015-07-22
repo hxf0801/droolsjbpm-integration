@@ -266,20 +266,40 @@ abstract class JaxbWrapper {
 		public Map<String, Object> getMoreProperties() {
 			return this.task.getMoreProperties();
 		}
-
+		/**
+         * @author PTI
+         */
 		@Override
 		public void setMoreProperties(Map<String, Object> moreProperties) {
 			unsupported(Map.class, Void.class);
 		}
-
+		/**
+         * @author PTI
+         */
 		@Override
 		public void setBatchProcessType(String batchProcessType) {
 			unsupported(InternalTask.class, Void.class);
 		}
-		
+		/**
+         * @author PTI
+         */
 		@Override
 		public String getBatchProcessType() {
 			return this.task.getBatchProcessType();
+		}
+		/**
+         * @author PTI
+         */
+		@Override
+		public String getActorCompanyType() {
+			return this.task.getActorCompanyType();
+		}
+		/**
+         * @author PTI
+         */
+		@Override
+		public void setActorCompanyType(String actorCompanyType) {
+			unsupported(InternalTask.class, Void.class);
 		}
     }
    

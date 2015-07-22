@@ -133,6 +133,18 @@ public class JaxbTaskSummary implements TaskSummary {
     @XmlElement
     @XmlSchemaType(name="string")
     private String formName;
+    /**
+     * @author PTI
+     */
+    @XmlElement(name="batch-process-type")
+    @XmlSchemaType(name="string")
+	private String batchProcessType;
+    /**
+     * @author PTI
+     */
+	@XmlElement(name = "actor-company-type")
+	@XmlSchemaType(name = "string")
+	private String actorCompanyType;    
 
     public JaxbTaskSummary(TaskSummary taskSum) {
         this.id = taskSum.getId();
@@ -161,6 +173,8 @@ public class JaxbTaskSummary implements TaskSummary {
         this.parentId = taskSum.getParentId();
         this.moreProperties = taskSum.getMoreProperties();
         this.formName = taskSum.getFormName();
+        this.batchProcessType = taskSum.getBatchProcessType();
+        this.actorCompanyType = taskSum.getActorCompanyType();
     }
     
     
@@ -413,6 +427,36 @@ public class JaxbTaskSummary implements TaskSummary {
 	 */
     public void setFormName(String formName) {
 		this.formName = formName;
+	}
+
+    /**
+     * @author PTI
+	 */
+	@Override
+	public String getBatchProcessType() {
+		return batchProcessType;
+	}
+
+	/**
+     * @author PTI
+	 */
+	@Override
+	public String getActorCompanyType() {
+		return actorCompanyType;
+	}
+
+	/**
+     * @author PTI
+	 */
+	public void setBatchProcessType(String batchProcessType) {
+		this.batchProcessType = batchProcessType;
+	}
+
+	/**
+     * @author PTI
+	 */
+	public void setActorCompanyType(String actorCompanyType) {
+		this.actorCompanyType = actorCompanyType;
 	}
     
 }
