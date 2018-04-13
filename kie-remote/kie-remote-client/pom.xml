@@ -240,6 +240,29 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>org.kie.remote.client</Bundle-SymbolicName>
+            <Export-Package>
+              org.kie.remote.client.api.*,
+              org.kie.remote.client.jaxb.*,
+              org.kie.services.client.api.*,
+              org.kie.remote.jaxb.gen.*
+            </Export-Package>
+            <Import-Package>
+              org.apache.cxf.*;resolution:=optional,
+              org.codehaus.jackson.annotate;resolution:=optional,
+              org.hornetq.*;resolution:=optional,
+              org.jsoup.*;resolution:=optional,
+              *
+            </Import-Package>
+            <Include-Resource>wsdl/=target/classes/wsdl</Include-Resource>
+          </instructions>
+        </configuration>
+      </plugin>
       <!--  generated: 0. delete all generated unpacked files because they are generated code and could change -->
       <!--  WSDL: 0. delete all generated files because only the WSDL determines code, no code in VCS -->
       <plugin>
@@ -247,6 +270,10 @@
         <executions>
           <execution>
             <id>unpacked-generated-files</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
             <configuration>
               <filesets>
                 <fileset>
@@ -257,6 +284,10 @@
           </execution>
           <execution>
             <id>generated-wsdl-files</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
             <configuration>
               <filesets>
                 <fileset>

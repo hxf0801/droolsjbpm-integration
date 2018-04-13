@@ -1,13 +1,11 @@
 package org.kie.services.client.api.command;
 
-import static org.kie.remote.client.jaxb.ConversionUtil.convertDateToXmlGregorianCalendar;
-import static org.kie.remote.client.jaxb.ConversionUtil.convertMapToJaxbStringObjectPairArray;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.pti.fsc.common.wf.WfTaskSummary;
 import org.kie.api.command.Command;
 import org.kie.api.search.SearchCriteria;
 import org.kie.api.task.TaskService;
@@ -35,18 +33,18 @@ import org.kie.remote.jaxb.gen.FailTaskCommand;
 import org.kie.remote.jaxb.gen.ForwardTaskCommand;
 import org.kie.remote.jaxb.gen.GetAttachmentCommand;
 import org.kie.remote.jaxb.gen.GetContentCommand;
+import org.kie.remote.jaxb.gen.GetSystemTasksCommand;
 import org.kie.remote.jaxb.gen.GetTaskAssignedAsBusinessAdminCommand;
 import org.kie.remote.jaxb.gen.GetTaskAssignedAsPotentialOwnerCommand;
 import org.kie.remote.jaxb.gen.GetTaskByWorkItemIdCommand;
 import org.kie.remote.jaxb.gen.GetTaskCommand;
 import org.kie.remote.jaxb.gen.GetTaskContentCommand;
+import org.kie.remote.jaxb.gen.GetTaskSummaryCommand;
+import org.kie.remote.jaxb.gen.GetTasksByInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByStatusByProcessInstanceIdCommand;
 import org.kie.remote.jaxb.gen.GetTasksByVariousFieldsCommand;
 import org.kie.remote.jaxb.gen.GetTasksCommand;
-import org.kie.remote.jaxb.gen.GetTasksByInstanceIdCommand;
-import org.kie.remote.jaxb.gen.UpdateProcessExtraCommand;
-import org.kie.remote.jaxb.gen.GetTaskSummaryCommand;
 import org.kie.remote.jaxb.gen.GetTasksOwnedCommand;
 import org.kie.remote.jaxb.gen.JaxbStringObjectPairArray;
 import org.kie.remote.jaxb.gen.NominateTaskCommand;
@@ -58,8 +56,11 @@ import org.kie.remote.jaxb.gen.StartTaskCommand;
 import org.kie.remote.jaxb.gen.StopTaskCommand;
 import org.kie.remote.jaxb.gen.SuspendTaskCommand;
 import org.kie.remote.jaxb.gen.Type;
+import org.kie.remote.jaxb.gen.UpdateProcessExtraByInstanceCommand;
+import org.kie.remote.jaxb.gen.UpdateProcessExtraCommand;
 
-import com.pti.fsc.common.wf.WfTaskSummary;
+import static org.kie.remote.client.jaxb.ConversionUtil.convertDateToXmlGregorianCalendar;
+import static org.kie.remote.client.jaxb.ConversionUtil.convertMapToJaxbStringObjectPairArray;
 
 public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject implements TaskService {
 
@@ -234,6 +235,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
 
     // TaskService methods --------------------------------------------------------------------------------------------------------
     
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T execute( Command<T> command ) {
         return (T) unsupported(TaskService.class, Object.class);
@@ -321,6 +323,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (Task) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksAssignedAsBusinessAdministrator( String userId, String language ) {
         GetTaskAssignedAsBusinessAdminCommand cmd = new GetTaskAssignedAsBusinessAdminCommand();
@@ -329,6 +332,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksAssignedAsPotentialOwner( String userId, String language ) {
         GetTaskAssignedAsPotentialOwnerCommand cmd = new GetTaskAssignedAsPotentialOwnerCommand();
@@ -337,6 +341,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksAssignedAsPotentialOwnerByStatus( String userId, List<Status> status, String language ) {
         GetTaskAssignedAsPotentialOwnerCommand cmd = new GetTaskAssignedAsPotentialOwnerCommand();
@@ -348,6 +353,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksOwned( String userId, String language ) {
         GetTasksOwnedCommand cmd = new GetTasksOwnedCommand();
@@ -356,6 +362,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksOwnedByStatus( String userId, List<Status> status, String language ) {
         GetTasksOwnedCommand cmd = new GetTasksOwnedCommand();
@@ -367,6 +374,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksByStatusByProcessInstanceId( long processInstanceId, List<Status> status, String language ) {
         GetTasksByStatusByProcessInstanceIdCommand cmd = new GetTasksByStatusByProcessInstanceIdCommand();
@@ -378,6 +386,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Long> getTasksByProcessInstanceId( long processInstanceId ) {
         GetTasksByProcessInstanceIdCommand cmd = new GetTasksByProcessInstanceIdCommand();
@@ -469,6 +478,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (Attachment) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Map<String, Object> getTaskContent( long taskId ) {
         GetTaskContentCommand cmd = new GetTaskContentCommand();
@@ -476,6 +486,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (Map<String, Object>) executeCommand(cmd);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksByVariousFields( String userId, List<Long> workItemIds, List<Long> taskIds,
             List<Long> procInstIds, List<String> busAdmins, List<String> potOwners, List<String> taskOwners, List<Status> status,
@@ -516,6 +527,7 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         throw new UnsupportedOperationException("The " + TaskService.class.getSimpleName() + ".getTasksByVariousFields(String, Map, boolean) method is not supported on the Remote Client instance.");
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<TaskSummary> getTasksAssignedAsPotentialOwner( String userId, List<String> groupIds, String language, int firstResult, int maxResults ) {
         GetTaskAssignedAsPotentialOwnerCommand cmd 
@@ -537,14 +549,16 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
         return (List<TaskSummary>) executeCommand(cmd);
 	}
 
-	@Override
+    @SuppressWarnings("unchecked")
+    @Override
 	public List<TaskSummary> getTasksByInstanceId(long processInstanceId) {
 		GetTasksByInstanceIdCommand cmd = new GetTasksByInstanceIdCommand();
 		cmd.setProcessInstanceId(processInstanceId);
         return (List<TaskSummary>) executeCommand(cmd);
 	}
 
-	@Override
+    @SuppressWarnings("unchecked")
+    @Override
 	public List<WfTaskSummary> getTaskSummary(SearchCriteria searchCriteria) {
 		GetTaskSummaryCommand cmd = new GetTaskSummaryCommand();
 		cmd.setSearchCriteria(searchCriteria);
@@ -559,5 +573,21 @@ public class TaskServiceClientCommandObject extends AbstractRemoteCommandObject 
 		cmd.setTaskId(taskId);
         executeCommand(cmd);
 	}
+
+    @Override
+    public void updateProcessExtraByInstanceId(long processInstanceId, Map<String, Object> data) {
+        UpdateProcessExtraByInstanceCommand cmd = new UpdateProcessExtraByInstanceCommand();
+        JaxbStringObjectPairArray values = convertMapToJaxbStringObjectPairArray(data);
+        cmd.setData(values);
+        executeCommand(cmd);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<TaskSummary> getSystemTasks(SearchCriteria searchCriteria) {
+        GetSystemTasksCommand cmd = new GetSystemTasksCommand();
+        cmd.setSearchCriteria(searchCriteria);
+        return (List<TaskSummary>) executeCommand(cmd);
+    }
 
 }
